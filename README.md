@@ -1,1 +1,1 @@
-## Hackathon Turismo
+## EkoGo (Hackathon Turismo)
