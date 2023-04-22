@@ -12,7 +12,5 @@ export async function Router(){
         $options.appendChild(cardOption('Crear experiencia','Esperientzia sortu'))
         $options.appendChild(cardOption('Buscar experiencia','Esperientzia bilatu'))
         $app.appendChild($options)
-    }else if( hash==='#/login'){
-
     }
 }
