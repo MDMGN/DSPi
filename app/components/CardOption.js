@@ -1,4 +1,4 @@
-export function cardOption(title='',title_eus=''){
+export function cardOption({endpoint,title,title_eus}){
     const cardOption=document.createElement('div')
     cardOption.className='options__cards'
     cardOption.innerHTML=
@@ -6,7 +6,7 @@ export function cardOption(title='',title_eus=''){
     <p>
       <span>${title}</span>
       <span>${title_eus}</span>
-      <span>+</span>
+      <a href="#/${endpoint}">+</a>
     </p>
     `
     return cardOption;
