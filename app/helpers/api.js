@@ -4,10 +4,10 @@
 const NAME="api.euskadi",
     DOMAIN=`https://${NAME}.eus`,
     SITE=`${DOMAIN}/culture`,
-    API_WP=`${SITE}/events/v1.0/`,
+    API_WP=`${SITE}/events/v1.0`,
     PER_PAGE=9,
-    EVENTS=`${API_WP}/events?_elements=${PER_PAGE}&_pag=`,
-    TYPES=`${API_WP}/events/byType/1?_elements=20&_page=1`,
+    EVENTS=`${API_WP}/events/byType/`,
+    TYPES=`?_elements=20&_page=1`,
     TYPE=`${API_WP}/eventType`;
     let page=1;
 export default {

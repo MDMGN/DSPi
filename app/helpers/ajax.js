@@ -7,12 +7,12 @@ export async function ajax(props){
     .then(json => cbSuccess(json))
     .catch(err =>{
         let message = err.statusText || "Ocurrio un error al acceder a la API";
-        document.getElementById("main").innerHTML= `
+        document.getElementById("app").innerHTML= `
         <div class="error">
             <p>Error ${err.status} : ${message}</p>
         </div>
         `;
-        document.querySelector(".loader").style.display="none";
+/*         document.querySelector(".loader").style.display="none"; */
         console.error(err);
     });
 }

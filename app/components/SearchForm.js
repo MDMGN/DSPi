@@ -1,3 +1,5 @@
+import { getEventId } from "../helpers/getEventByType";
+
 export function SearchForm(){
     const $form=document.createElement("form"),
     $input=document.createElement("input");
@@ -15,10 +17,10 @@ export function SearchForm(){
     });
 
     document.addEventListener("submit",(e)=>{
-        if(!e.target.matches(".search-form")) return false;
         e.preventDefault();
-        localStorage.setItem("apiSearch",e.target.search.value);
-        location.hash=`#/search?search=${e.target.search.value}`;
+        if(!e.target.matches(".search-form")) return false;
+        console.log(e.target.value)
+        getEventId('concierto')
     });
 
     return $form;
