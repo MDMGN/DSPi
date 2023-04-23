@@ -3,6 +3,7 @@ import { SearchForm } from "./SearchForm";
 import api from "../helpers/api";
 import { ajax } from "../helpers/ajax";
 import { SearchCard } from "./SearchCard";
+import { Event } from "./Event";
 export async function Router(){
     const $app=document.getElementById("app");
     const $options=document.createElement("div")
@@ -14,7 +15,7 @@ export async function Router(){
     if(!hash || hash==="#/"){
         const search_event={
             endpoint:'search',
-            title:'Crear experiencias',
+            title:'Buscar experiencias',
             title_eus:'Esperientzia sortu'
         }, create_event={
             endpoint:'create',
@@ -44,11 +45,34 @@ export async function Router(){
                     </p>
                     `;
                 }else{
-                types.items.forEach(item => html+=SearchCard(item));
+                    console.log(types.items.id);
+                    types.items.forEach((item) =>{
+                        if(item.establishmentEu)  html+=SearchCard(item);
+                    });
                  }
                 document.getElementById("app").innerHTML+=html;
             }
         });
+    }else{
+        $app.innerHTML=null
+        let query=''
+        await ajax({
+            url:`https://api.euskadi.eus/culture/events/v1.0/events?_elements=20&_page=1`,
+            cbSuccess:(types)=>{
+                if(types.items.length===0){
+                    html=`
+                    <p class="error">
+                        No existen resultados de búsqueda para el término
+                        <mark>${query}</mark>
+                    </p>
+                    `;
+                }else{
+                    types.items.forEach((item) =>{
+                         $app.appendChild(Event(item));
+                    });
+                 }
+                
+            }
+        })
     }
-
 }

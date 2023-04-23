@@ -6,7 +6,7 @@ export function cardOption({endpoint,title,title_eus}){
     <p>
       <span>${title}</span>
       <span>${title_eus}</span>
-      <a href="#/${endpoint}">+</a>
+      <a href="#/${endpoint}" class="btn-event">+</a>
     </p>
     `
     return cardOption;

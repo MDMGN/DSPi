@@ -1,10 +1,10 @@
 export function SearchCard(props){
-    let {id,typeEs,typeEu} =props;
+    let {id,establishmentEs,establishmentEu} =props;
     return`
         <article class="post-card">
-        <h2>${typeEs}</h2>
+        <h2>${establishmentEs}</h2>
         <p>
-            <a href="#/${typeEs}" data-id="${id}">${typeEs}</a>
+            <a href="#/${establishmentEu}" data-id="${id}">${establishmentEu}</a>
         </p>
         </article>
     `;

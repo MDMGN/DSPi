@@ -19,8 +19,8 @@ export function SearchForm(){
     document.addEventListener("submit",(e)=>{
         e.preventDefault();
         if(!e.target.matches(".search-form")) return false;
-        console.log(e.target.value)
-        getEventId('concierto')
+        console.log(e.target.search.value)
+        getEventId(e.target.search.value)
     });
 
     return $form;
