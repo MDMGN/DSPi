@@ -8,10 +8,10 @@ export function Loader(){
             <span>a GSPI!</span>
           </p>
           <p  class="header__text2">
-            Ongi Etorri GSPI!
+            Ongi Etorri EkOGO!
           </p>
         </div>
-        <img src="./logo.png" alt="logo-GESPI" class="logo">
+        <img src="./logo.png" alt="logo-EkOGO" class="logo">
     `;
     return loader;
 }
