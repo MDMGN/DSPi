@@ -2,6 +2,7 @@ import { cardOption } from "./CardOption";
 import { SearchForm } from "./SearchForm";
 import api from "../helpers/api";
 import { ajax } from "../helpers/ajax";
+import { SearchCard } from "./SearchCard";
 export async function Router(){
     const $app=document.getElementById("app");
     const $options=document.createElement("div")
@@ -27,29 +28,27 @@ export async function Router(){
     }else if(hash.includes('#/search')){
         $app.appendChild(SearchForm())
         let query=localStorage.getItem("apiSearch");
-
         if(!query){
             /* document.querySelector(".loader").style.display="none"; */
             return false
         };
         await ajax({
-            url:`${api.EVENTS+`/${query}`+api.TYPES}}`,
+            url:`${api.EVENTS+`${query}`+api.TYPES}`,
             cbSuccess: types=>{
-                console.log(types)
                 let html="";
-              /*   if(search.length===0){
+                if(types.items.length===0){
                     html=`
                     <p class="error">
                         No existen resultados de búsqueda para el término
                         <mark>${query}</mark>
                     </p>
                     `;
-                }else{ */
-                    types.forEach(type => html+=SearchCard(type.items));
-/*                 } */
-                document.getElementById("app").innerHTML=html;
+                }else{
+                types.items.forEach(item => html+=SearchCard(item));
+                 }
+                document.getElementById("app").innerHTML+=html;
             }
         });
-    }xº
+    }
 
 }

@@ -3,9 +3,6 @@ import { Router } from './components/Router.js'
 
 export function App(){
     const $app=document.getElementById('app');
-    
-    $app.appendChild(Loader());
-
     //Pantalla de Loader
     setTimeout(()=>{
         $app.innerHTML=null
