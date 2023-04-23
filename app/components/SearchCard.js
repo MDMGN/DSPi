@@ -4,7 +4,7 @@ export function SearchCard(props){
         <article class="post-card">
         <h2>${typeEs}</h2>
         <p>
-            <a href="#/${typeEs}" data-id="${id}">Ver Publicación</a>
+            <a href="#/${typeEs}" data-id="${id}">${typeEs}</a>
         </p>
         </article>
     `;
